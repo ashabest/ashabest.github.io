@@ -1,0 +1,386 @@
+/**** GENERAL ****/
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: Verdana, Helvetica, sans-serif;
+  font-style: italic;
+}
+
+.container {
+  color: #600E2A;
+  padding: 25px 100px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.content-title {
+  color: #FF2800;
+  font-family: 'Tangerine', cursive;
+  font-size: 48pt;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #600E2A;
+  text-align: center;
+}
+
+.scroll-btn {
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.scroll-btn:hover {
+  opacity: 1;
+  cursor: pointer;
+  /* transition: 0.3s; */
+}
+
+.divider {
+  background: linear-gradient(to right, #58031E 0%, #BD2857 65%, #C75C00);
+  height: 3px;
+}
+
+@keyframes item-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/**** LANDING ****/
+
+#landing-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to top right, #58031E 0%, #533025DD 60%, #CEA8A8DD 100%);
+}
+
+#landing-container {
+  background: url("../img/orange-slices.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: #FFF;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+nav {
+  position: absolute;
+  right: 70px;
+  top: 20px;
+}
+
+nav>a {
+  color: #FFF;
+  margin-left: 20px;
+  font-style: normal;
+  font-size: 14pt;
+  font-weight: 300;
+  text-decoration: none;
+  text-shadow: -1px 1px 4px #4C0015;
+
+  opacity: 0;
+  animation: item-fade 1.5s;
+  animation-delay: 2.4s;
+  animation-fill-mode: forwards;
+}
+
+nav>a:hover {
+  text-decoration: underline;
+}
+
+#landing-content {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+#intro-container {
+  display: inline-block;
+  position: relative;
+  bottom: 18%;
+}
+
+#welcome {
+  font-size: 20pt;
+}
+
+#main-title {
+  font-size: 70pt;
+  font-weight: 700;
+  text-decoration: underline;
+  animation: item-fade 2s;
+}
+
+/* If screen width < 1074 align left */
+#desc {
+  font-family: Helvetica;
+  font-size: 16pt;
+  font-weight: 300;
+  opacity: 0;
+  animation: item-fade 1.5s;
+  animation-delay: 1.8s;
+  animation-fill-mode: forwards;
+}
+
+/* Preferred */
+@media (min-width: 1074px) {
+		#desc {
+			text-align: right;
+		}
+}
+
+#landing-scroll-section {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  font-size: 16pt;
+  font-style: normal;
+  bottom: 20px;
+  width: 100%;
+
+  opacity: 0;
+  animation: item-fade 1.5s;
+  animation-delay: 2.4s;
+  animation-fill-mode: forwards;
+}
+
+#landing-scroll-section .scroll-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 6px;
+  width: 112px;
+  border: 1px solid white;
+  border-radius: 2px;
+  font-size: 14pt;
+}
+
+/**** NUTRITIONAL STATS ****/
+
+#nutrition-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: calc(100% - 40px);
+}
+
+#orange-prompt {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#orange-prompt>span {
+  font-size: 16pt;
+  color: #AB0840;
+}
+
+.radio-btn {
+  background: #4D6B90;
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #707070;
+}
+
+.radio-btn.selected {
+  background: #1B4577;
+}
+
+.inner {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #CCC;
+}
+
+#navel .inner {
+  background: #E27300;
+}
+
+#cara-cara .inner {
+  background: #E03A1B;
+}
+
+#blood-orange .inner {
+  background: #BF2140;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  visibility: hidden;
+  background: black;
+  opacity: 0.2;
+}
+
+.radio-btn:hover .overlay {
+  visibility: visible;
+}
+
+/* Tooltip styling from https://www.w3schools.com/css/css_tooltip.asp */
+.tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #FFF;
+  text-align: center;
+  font-style: normal;
+  border-radius: 2px;
+  padding: 5px 3px;
+
+  position: absolute;
+  z-index: 1;
+  top: 130%;
+  left: 40%;
+  margin-left: -60px;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #333 transparent;
+}
+
+.radio-btn:hover {
+  cursor: pointer;
+}
+
+.radio-btn:hover .tooltip {
+  visibility: visible;
+}
+
+#chart-container {
+  position: relative;
+  width: 70vw;
+}
+
+#nutrition-scroll-section {
+  color: #555;
+  font-size: 11pt;
+  margin-top: 15px;
+}
+
+/**** TREE STATS ****/
+
+#tree-desc {
+  margin-top: 7px;
+  text-align: center;
+  color: #AB0840;
+}
+
+#tree-desc a {
+  color: #AB0840;
+}
+
+#treestats-content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#tree-selection {
+  margin-top: -100px;
+}
+
+#tree-prompt {
+  font-size: 14pt;
+  color: #6B0A2B;
+}
+
+#tree-rows {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tree-row {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#tree-row-1 {
+  width: 200px;
+}
+
+#tree-row-2 {
+  width: 125px;
+}
+
+.tree-btn {
+  background: #DD9079;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  box-shadow: -1px 2px 4px #C68370;
+  border: 1px solid #600E2A;
+  border-radius: 50%;
+  font-weight: 400;
+}
+
+.tree-btn.selected {
+  background: #D4836B;
+  border-width: 3px;
+  font-weight: 700;
+}
+
+.tree-btn:hover {
+  background: #BF7864;
+  cursor: pointer;
+}
+
+#graph-img-section {
+  position: relative;
+  margin-left: 80px;
+  width: 500px;
+  height: 500px;
+}
+
+#graph-img-section img {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 2px;
+  opacity: 0.8;
+  display: none;
+}
