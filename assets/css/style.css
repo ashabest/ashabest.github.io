@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-  color: #600E2A;
+  color: #600e2a;
   padding: 25px 100px;
   box-sizing: border-box;
   width: 100%;
@@ -20,12 +20,12 @@ body {
 }
 
 .content-title {
-  color: #FF2800;
+  color: #ff2800;
   font-family: 'Tangerine', cursive;
   font-size: 48pt;
   font-weight: 700;
   letter-spacing: 2px;
-  border-bottom: 2px solid #600E2A;
+  border-bottom: 2px solid #600e2a;
   text-align: center;
 }
 
@@ -37,11 +37,11 @@ body {
 .scroll-btn:hover {
   opacity: 1;
   cursor: pointer;
-  /* transition: 0.3s; */
 }
 
 .divider {
-  background: linear-gradient(to right, #58031E 0%, #BD2857 65%, #C75C00);
+  background: #58031e; /* fallback */
+  background: linear-gradient(to right, #58031e 0%, #bd2857 65%, #c75c00);
   height: 3px;
 }
 
@@ -63,14 +63,15 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: linear-gradient(to top right, #58031E 0%, #533025DD 60%, #CEA8A8DD 100%);
+  background-image: #4f2230dd; /* fallback */
+  background-image: linear-gradient(to top right, #58031e 0%, #533025dd 60%, #cea8a8dd 100%);
 }
 
 #landing-container {
   background: url("../img/orange-slices.jpeg");
   background-size: cover;
   background-position: center;
-  color: #FFF;
+  color: #fff;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -86,13 +87,13 @@ nav {
 }
 
 nav>a {
-  color: #FFF;
+  color: #fff;
   margin-left: 20px;
   font-style: normal;
   font-size: 14pt;
   font-weight: 300;
   text-decoration: none;
-  text-shadow: -1px 1px 4px #4C0015;
+  text-shadow: -1px 1px 4px #4c0015;
 
   opacity: 0;
   animation: item-fade 1.5s;
@@ -126,7 +127,6 @@ nav>a:hover {
   animation: item-fade 2s;
 }
 
-/* If screen width < 1074 align left */
 #desc {
   font-family: Helvetica;
   font-size: 16pt;
@@ -137,11 +137,10 @@ nav>a:hover {
   animation-fill-mode: forwards;
 }
 
-/* Preferred */
 @media (min-width: 1074px) {
-		#desc {
-			text-align: right;
-		}
+	#desc {
+		text-align: right;
+	}
 }
 
 #landing-scroll-section {
@@ -188,11 +187,11 @@ nav>a:hover {
 
 #orange-prompt>span {
   font-size: 16pt;
-  color: #AB0840;
+  color: #ab0840;
 }
 
 .radio-btn {
-  background: #4D6B90;
+  background: #4d6b90;
   position: relative;
   display: inline-flex;
   flex-direction: row;
@@ -206,26 +205,26 @@ nav>a:hover {
 }
 
 .radio-btn.selected {
-  background: #1B4577;
+  background: #1b4577;
 }
 
 .inner {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
 }
 
 #navel .inner {
-  background: #E27300;
+  background: #e27300;
 }
 
 #cara-cara .inner {
-  background: #E03A1B;
+  background: #e03a1b;
 }
 
 #blood-orange .inner {
-  background: #BF2140;
+  background: #bf2140;
 }
 
 .overlay {
@@ -248,7 +247,7 @@ nav>a:hover {
   visibility: hidden;
   width: 120px;
   background-color: #333;
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-style: normal;
   border-radius: 2px;
@@ -296,11 +295,11 @@ nav>a:hover {
 #tree-desc {
   margin-top: 7px;
   text-align: center;
-  color: #AB0840;
+  color: #ab0840;
 }
 
 #tree-desc a {
-  color: #AB0840;
+  color: #ab0840;
 }
 
 #treestats-content {
@@ -317,7 +316,7 @@ nav>a:hover {
 
 #tree-prompt {
   font-size: 14pt;
-  color: #6B0A2B;
+  color: #6b0a2b;
 }
 
 #tree-rows {
@@ -343,7 +342,7 @@ nav>a:hover {
 }
 
 .tree-btn {
-  background: #DD9079;
+  background: #dd9079;
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
@@ -352,20 +351,20 @@ nav>a:hover {
   width: 50px;
   height: 50px;
   box-sizing: border-box;
-  box-shadow: -1px 2px 4px #C68370;
-  border: 1px solid #600E2A;
+  box-shadow: -1px 2px 4px #c68370;
+  border: 1px solid #600e2a;
   border-radius: 50%;
   font-weight: 400;
 }
 
 .tree-btn.selected {
-  background: #D4836B;
+  background: #d4836b;
   border-width: 3px;
   font-weight: 700;
 }
 
 .tree-btn:hover {
-  background: #BF7864;
+  background: #bf7864;
   cursor: pointer;
 }
 
