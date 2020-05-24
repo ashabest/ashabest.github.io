@@ -1,35 +1,37 @@
 $(document).ready(function() {
 
-  let firstTime2 = true;
-  let firstTime3 = true;
+  const NAVEL_DATA = [130, 2, 6, 11, 6];
+  const CARA_CARA_DATA = [150, 30, 2, 25, 7];
+  const BLOOD_ORANGE_DATA = [110, 8, 4, 11, 5];
 
-  $("#tree-selection").hide();
+  const navelColor = function(alpha) {
+    return "rgba(230, 114, 43, " + alpha + ")";
+  }
 
-  $(window).scroll(function() {
-    let position = $(document).scrollTop();
-    if (firstTime2 && position >= $("#nutrition-section").offset().top - 80) {
-      firstTime2 = false;
-      updateChart([130, 2, 6, 11, 6], "rgba(230, 114, 43, 0.2)", "rgba(230, 114, 43)");
+  const caraCaraColor = function(alpha) {
+    return "rgba(240, 72, 60, " + alpha + ")";
+  }
 
-    } else if (firstTime3 && position >= $("#treestats-section").offset().top - 80) {
-      firstTime3 = false;
-      $("#tree-selection").fadeIn(400);
-      $("#graph1").fadeIn(800);
-    }
-  });
+  const bloodOrangeColorInner = function(alpha) {
+    return "rgba(180, 21, 70, " + alpha + ")";
+  }
+
+  const bloodOrangeColorOuter = function(alpha) {
+    return "rgba(160, 21, 70, " + alpha + ")";
+  }
 
   const chart = new Chart($("#barchart"), {
     type: "bar",
 
     // start up
     data: {
-      labels: ["Vitamin C","Vitamin A","Calcium","Dietary Fiber","Carbohydrates"],
+      labels: ["Vitamin C", "Vitamin A", "Calcium", "Dietary Fiber", "Carbohydrates"],
       datasets: [{
         label: null,
         data: [0,0,0,0,0],
         fill: false,
-        backgroundColor: "rgba(230, 114, 43, 0.2)",  // default to navel
-        borderColor: "rgba(230, 114, 43)",
+        backgroundColor: navelColor(0.2), // default to navel
+        borderColor: navelColor(1),
         borderWidth: 1
       }
     ]},
@@ -55,22 +57,56 @@ $(document).ready(function() {
     }
   });
 
+  const updateChart = function(data, bgColor, borderColor) {
+    chart.data.datasets.forEach(function(dataset) {
+      dataset.data = data;
+      dataset.backgroundColor = bgColor;
+      dataset.borderColor = borderColor;
+    })
+    chart.update();
+  }
+
+  const updateSelected = function(type, elem) {
+    type.removeClass("selected");
+    elem.addClass("selected");
+  }
+
+  /*************************/
+
+  let firstTime2 = true;
+  let firstTime3 = true;
+
+  $("#tree-selection").hide();
+
+  $(window).scroll(function() {
+    let position = $(document).scrollTop();
+    if (firstTime2 && position >= $("#nutrition").offset().top - 80) {
+      firstTime2 = false;
+      updateChart(NAVEL_DATA, navelColor(0.2), navelColor(1));
+
+    } else if (firstTime3 && position >= $("#treestats").offset().top - 80) {
+      firstTime3 = false;
+      $("#tree-selection").fadeIn(400);
+      $("#graph1").fadeIn(800);
+    }
+  });
+
   $("#landing-scroll-section .scroll-btn").click(function() {
     $("body, html").animate({
-      scrollTop: $("#nutrition-section").offset().top,
+      scrollTop: $("#nutrition").offset().top,
       duration: 600
     });
     if (firstTime2) {
       firstTime2 = false;
       setTimeout(function() {
-        updateChart([130, 2, 6, 11, 6], "rgba(230, 114, 43, 0.2)", "rgba(230, 114, 43)");
+        updateChart(NAVEL_DATA, navelColor(0.2), navelColor(1));
       }, 600)
     }
   });
 
   $("#nutrition-scroll-section .scroll-btn").click(function() {
     $("body, html").animate({
-      scrollTop: $("#treestats-section").offset().top,
+      scrollTop: $("#treestats").offset().top,
       duration: 600
     });
     if (firstTime3) {
@@ -79,37 +115,22 @@ $(document).ready(function() {
         $("#tree-selection").fadeIn(400);
         $("#graph1").fadeIn(800); // default selection
       }, 600)
-
     }
   });
 
-  const updateSelected = function(type, elem) {
-    type.removeClass("selected");
-    elem.addClass("selected");
-  }
-
-  const updateChart = function(data, bgColor, brdColor) {
-    chart.data.datasets.forEach(function(dataset) {
-      dataset.data = data;
-      dataset.backgroundColor = bgColor;
-      dataset.borderColor = brdColor;
-    })
-    chart.update();
-  }
-
   $("#navel-btn").click(function() {
     updateSelected($(".radio-btn"), $(this));
-    updateChart([130, 2, 6, 11, 6], "rgba(230, 114, 43, 0.2)", "rgba(230, 114, 43)");
+    updateChart(NAVEL_DATA, navelColor(0.2), navelColor(1));
   });
 
   $("#cara-cara-btn").click(function() {
     updateSelected($(".radio-btn"), $(this));
-    updateChart([150, 30, 2, 25, 7], "rgba(240, 72, 60, 0.2)", "rgba(240, 72, 60)")
+    updateChart(CARA_CARA_DATA, caraCaraColor(0.2), caraCaraColor(1));
   });
 
   $("#blood-orange-btn").click(function() {
     updateSelected($(".radio-btn"), $(this));
-    updateChart([110, 8, 4, 11, 5], "rgba(180, 21, 70, 0.2)", "rgba(160, 21, 70)")
+    updateChart(BLOOD_ORANGE_DATA, bloodOrangeColorInner(0.2), bloodOrangeColorOuter(1));
   });
 
   $(".tree-btn").click(function() {
