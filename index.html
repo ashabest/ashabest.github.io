@@ -12,18 +12,17 @@
   </head>
   <body>
     <!-- Landing -->
-    <div id="landing-container">
-      <!-- nav within a div?! -->
+    <div id="landing-section">
       <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
       </nav>
 
-      <div id="landing-content">
-        <div id="intro-container">
-          <div id="welcome">Welcome to</div>
-          <div id="main-title">Orange Analyzer</div>
-          <div id="desc">The mini-hub for orange-related stats</div>
+      <div class="landing-content">
+        <div class="intro-container">
+          <div class="welcome">Welcome to</div>
+          <div class="main-title">Orange Analyzer</div>
+          <div class="desc">The mini-hub for orange-related stats</div>
         </div>
       </div>
 
@@ -36,22 +35,22 @@
     </div>
 
     <!-- Nutrition stuff -->
-    <div class="container" id="nutrition-container">
-      <div class="content-title" id="nutrition-title">Nutritional Stats</div>
-      <div id="nutrition-content">
-        <div id="orange-prompt">
+    <div id="nutrition-section" class="body-container">
+      <div class="content-title">Nutritional Stats</div>
+      <div class="nutrition-content">
+        <div class="orange-prompt">
           <span>Choose your orange:</span>
-          <div class="radio-btn selected" id="navel">
+          <div class="radio-btn selected" id="navel-btn">
             <div class="inner"></div>
             <div class="overlay"></div>
             <span class="tooltip">Navel Orange</span>
           </div>
-          <div class="radio-btn" id="cara-cara">
+          <div class="radio-btn" id="cara-cara-btn">
             <div class="inner"></div>
             <div class="overlay"></div>
             <span class="tooltip">Cara Cara</span>
           </div>
-          <div class="radio-btn" id="blood-orange">
+          <div class="radio-btn" id="blood-orange-btn">
             <div class="inner"></div>
             <div class="overlay"></div>
             <span class="tooltip">Blood Orange</span>
@@ -73,19 +72,19 @@
     <div class="divider"></div>
 
     <!-- Orange trees -->
-    <div class="container" id="treestats-container">
-      <div class="content-title" id="tree-title">Orange Tree Stats</div>
-      <div id="tree-desc">straight from R’s <a href="http://www.sthda.com/english/wiki/r-built-in-data-sets">built-in data table</a></div>
-      <div id="treestats-content">
+    <div id="treestats-section" class="body-container">
+      <div class="content-title">Orange Tree Stats</div>
+      <div class="tree-desc">straight from R’s <a href="http://www.sthda.com/english/wiki/r-built-in-data-sets">built-in data table</a></div>
+      <div class="treestats-content">
         <div id="tree-selection">
-          <span id="tree-prompt">Select tree:</span>
-          <div id="tree-rows">
-            <div class="tree-row" id="tree-row-1">
+          <span class="tree-prompt">Select tree:</span>
+          <div class="tree-rows">
+            <div class="tree-row first">
               <div id="tb1" class="tree-btn selected">1</div>
               <div id="tb2" class="tree-btn">2</div>
               <div id="tb3" class="tree-btn">3</div>
             </div>
-            <div class="tree-row" id="tree-row-2">
+            <div class="tree-row second">
               <div id="tb4" class="tree-btn">4</div>
               <div id="tb5" class="tree-btn">5</div>
             </div>

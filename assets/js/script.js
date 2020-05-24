@@ -7,14 +7,14 @@ $(document).ready(function() {
 
   $(window).scroll(function() {
     let position = $(document).scrollTop();
-    if (firstTime2 && position >= $("#nutrition-container").offset().top - 80) {
+    if (firstTime2 && position >= $("#nutrition-section").offset().top - 80) {
       firstTime2 = false;
       updateChart([130, 2, 6, 11, 6], "rgba(230, 114, 43, 0.2)", "rgba(230, 114, 43)");
 
-    } else if (firstTime3 && position >= $("#treestats-container").offset().top - 80) {
+    } else if (firstTime3 && position >= $("#treestats-section").offset().top - 80) {
       firstTime3 = false;
-      $("#graph1").fadeIn(800);
       $("#tree-selection").fadeIn(400);
+      $("#graph1").fadeIn(800);
     }
   });
 
@@ -57,7 +57,7 @@ $(document).ready(function() {
 
   $("#landing-scroll-section .scroll-btn").click(function() {
     $("body, html").animate({
-      scrollTop: $("#nutrition-container").offset().top,
+      scrollTop: $("#nutrition-section").offset().top,
       duration: 600
     });
     if (firstTime2) {
@@ -70,14 +70,14 @@ $(document).ready(function() {
 
   $("#nutrition-scroll-section .scroll-btn").click(function() {
     $("body, html").animate({
-      scrollTop: $("#treestats-container").offset().top,
+      scrollTop: $("#treestats-section").offset().top,
       duration: 600
     });
     if (firstTime3) {
       firstTime3 = false;
       setTimeout(function() {
-        $("#graph1").fadeIn(800); // default selection
         $("#tree-selection").fadeIn(400);
+        $("#graph1").fadeIn(800); // default selection
       }, 600)
 
     }
@@ -97,17 +97,17 @@ $(document).ready(function() {
     chart.update();
   }
 
-  $("#navel").click(function() {
+  $("#navel-btn").click(function() {
     updateSelected($(".radio-btn"), $(this));
     updateChart([130, 2, 6, 11, 6], "rgba(230, 114, 43, 0.2)", "rgba(230, 114, 43)");
   });
 
-  $("#cara-cara").click(function() {
+  $("#cara-cara-btn").click(function() {
     updateSelected($(".radio-btn"), $(this));
     updateChart([150, 30, 2, 25, 7], "rgba(240, 72, 60, 0.2)", "rgba(240, 72, 60)")
   });
 
-  $("#blood-orange").click(function() {
+  $("#blood-orange-btn").click(function() {
     updateSelected($(".radio-btn"), $(this));
     updateChart([110, 8, 4, 11, 5], "rgba(180, 21, 70, 0.2)", "rgba(160, 21, 70)")
   });

@@ -1,5 +1,13 @@
 /**** GENERAL ****/
 
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -11,10 +19,9 @@ body {
   font-style: italic;
 }
 
-.container {
+.body-container {
   color: #600e2a;
   padding: 25px 100px;
-  box-sizing: border-box;
   width: 100%;
   height: 100%;
 }
@@ -40,7 +47,6 @@ body {
 }
 
 .divider {
-  background: #58031e; /* fallback */
   background: linear-gradient(to right, #58031e 0%, #bd2857 65%, #c75c00);
   height: 3px;
 }
@@ -56,18 +62,17 @@ body {
 
 /**** LANDING ****/
 
-#landing-container::before {
+#landing-section::before {
   content: '';
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: #4f2230dd; /* fallback */
   background-image: linear-gradient(to top right, #58031e 0%, #533025dd 60%, #cea8a8dd 100%);
 }
 
-#landing-container {
+#landing-section {
   background: url("../img/orange-slices.jpeg");
   background-size: cover;
   background-position: center;
@@ -105,29 +110,29 @@ nav>a:hover {
   text-decoration: underline;
 }
 
-#landing-content {
+.landing-content {
   padding-left: 100px;
   padding-right: 100px;
 }
 
-#intro-container {
+.intro-container {
   display: inline-block;
   position: relative;
   bottom: 18%;
 }
 
-#welcome {
+.intro-container .welcome {
   font-size: 20pt;
 }
 
-#main-title {
+.intro-container .main-title {
   font-size: 70pt;
   font-weight: 700;
   text-decoration: underline;
   animation: item-fade 2s;
 }
 
-#desc {
+.intro-container .desc {
   font-family: Helvetica;
   font-size: 16pt;
   font-weight: 300;
@@ -138,7 +143,7 @@ nav>a:hover {
 }
 
 @media (min-width: 1074px) {
-	#desc {
+	.intro-container .desc {
 		text-align: right;
 	}
 }
@@ -164,7 +169,7 @@ nav>a:hover {
   justify-content: space-between;
 
   padding: 6px;
-  width: 112px;
+  width: 126px;
   border: 1px solid white;
   border-radius: 2px;
   font-size: 14pt;
@@ -172,7 +177,7 @@ nav>a:hover {
 
 /**** NUTRITIONAL STATS ****/
 
-#nutrition-content {
+.nutrition-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -180,12 +185,11 @@ nav>a:hover {
   height: calc(100% - 40px);
 }
 
-#orange-prompt {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.orange-prompt {
+  margin: 20px 0;
 }
 
-#orange-prompt>span {
+.orange-prompt > span {
   font-size: 16pt;
   color: #ab0840;
 }
@@ -215,15 +219,15 @@ nav>a:hover {
   border: 1px solid #ccc;
 }
 
-#navel .inner {
+#navel-btn .inner {
   background: #e27300;
 }
 
-#cara-cara .inner {
+#cara-cara-btn .inner {
   background: #e03a1b;
 }
 
-#blood-orange .inner {
+#blood-orange-btn .inner {
   background: #bf2140;
 }
 
@@ -245,6 +249,7 @@ nav>a:hover {
 /* Tooltip styling from https://www.w3schools.com/css/css_tooltip.asp */
 .tooltip {
   visibility: hidden;
+  box-sizing: content-box;
   width: 120px;
   background-color: #333;
   color: #fff;
@@ -292,17 +297,17 @@ nav>a:hover {
 
 /**** TREE STATS ****/
 
-#tree-desc {
+.tree-desc {
   margin-top: 7px;
   text-align: center;
   color: #ab0840;
 }
 
-#tree-desc a {
+.tree-desc a {
   color: #ab0840;
 }
 
-#treestats-content {
+.treestats-content {
   margin-top: 20px;
   display: flex;
   flex-direction: row;
@@ -314,12 +319,12 @@ nav>a:hover {
   margin-top: -100px;
 }
 
-#tree-prompt {
+.tree-prompt {
   font-size: 14pt;
   color: #6b0a2b;
 }
 
-#tree-rows {
+.tree-rows {
   margin-left: 20px;
   display: flex;
   flex-direction: column;
@@ -333,11 +338,11 @@ nav>a:hover {
   justify-content: space-between;
 }
 
-#tree-row-1 {
+.tree-row.first {
   width: 200px;
 }
 
-#tree-row-2 {
+.tree-row.second {
   width: 125px;
 }
 
@@ -350,7 +355,6 @@ nav>a:hover {
   padding: 10px;
   width: 50px;
   height: 50px;
-  box-sizing: border-box;
   box-shadow: -1px 2px 4px #c68370;
   border: 1px solid #600e2a;
   border-radius: 50%;
@@ -381,5 +385,5 @@ nav>a:hover {
   height: 500px;
   border-radius: 2px;
   opacity: 0.8;
-  display: none;
+  display: none; /* default */
 }
