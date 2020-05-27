@@ -16,7 +16,7 @@ a {
   color: #FF5142;
 }
 
-#title {
+.title {
   color: #FF2800;
   font-family: 'Tangerine', cursive;
   font-size: 48pt;
@@ -26,7 +26,7 @@ a {
   text-align: center;
 }
 
-#content-container {
+.content-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -35,7 +35,7 @@ a {
   box-sizing: border-box;
 }
 
-#img-container {
+.img-container {
   width: 40%;
 }
 
@@ -45,35 +45,35 @@ img {
   border-radius: 3px;
 }
 
-#content {
+.content {
   padding: 25px 40px;
   color: #333;
 }
 
-#credits {
+.credits {
   margin-top: 25px;
   font-size: 13pt;
   font-style: italic;
 }
 
-#credits-title {
+.credits-title {
   text-align: center;
   font-size: 14pt;
   font-weight: bold;
 }
 
-#navel-link {
+.navel-link {
   color: #ff6e00;
 }
 
-#cara-cara-link {
+.cara-cara-link {
   color: #ff2800;
 }
 
-#blood-orange-link {
+.blood-orange-link {
   color: #d81e43;
 }
 
-#home {
+.home {
   margin-top: 50px;
 }
