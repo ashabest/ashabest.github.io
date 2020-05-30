@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+  let firstTimeNutrition = true;
+  let firstTimeTreestats = true;
+
   const NAVEL_DATA = [130, 2, 6, 11, 6];
   const CARA_CARA_DATA = [150, 30, 2, 25, 7];
   const BLOOD_ORANGE_DATA = [110, 8, 4, 11, 5];
@@ -33,8 +36,8 @@ $(document).ready(function() {
         backgroundColor: navelColor(0.2), // default to navel
         borderColor: navelColor(1),
         borderWidth: 1
-      }
-    ]},
+      }]
+    },
 
     options: {
       scales: {
@@ -49,8 +52,8 @@ $(document).ready(function() {
             labelString: "% Daily Value",
             fontSize: 14
           }
-        }
-      ]},
+        }]
+      },
       legend: {
           display: false
       },
@@ -62,33 +65,57 @@ $(document).ready(function() {
       dataset.data = data;
       dataset.backgroundColor = bgColor;
       dataset.borderColor = borderColor;
-    })
+    });
     chart.update();
   }
 
-  const updateSelected = function(type, elem) {
-    type.removeClass("selected");
-    elem.addClass("selected");
+  const updateSelected = function(btnsAll, btn) {
+    btnsAll.removeClass("selected");
+    btn.addClass("selected");
+  }
+
+  const checkScrollAndShowNutrition = function(position, threshold) {
+    const initializeFirstTime = firstTimeNutrition && position >= $("#nutrition").offset().top - threshold;
+    if (initializeFirstTime) {
+      firstTimeNutrition = false;
+      updateChart(NAVEL_DATA, navelColor(0.2), navelColor(1)); // default to navel the first time
+    }
+    return initializeFirstTime;
+  }
+
+  const checkScrollAndShowTreestats = function(position, threshold) {
+    const initializeFirstTime = firstTimeTreestats && position >= $("#treestats").offset().top - threshold;
+    if (initializeFirstTime) {
+      firstTimeTreestats = false;
+      $("#graph1").fadeIn(800);
+      $("#tree-selection").fadeIn(400);
+    }
+    return initializeFirstTime;
+  }
+
+  const checkScrollAndShowOnPageLoad = function(thresholdNutrition, thresholdTreestats) {
+    const position = $(document).scrollTop();
+    checkScrollAndShowNutrition(position, thresholdNutrition);
+    checkScrollAndShowTreestats(position, thresholdTreestats);
+  }
+
+  const checkScrollAndShowOnScroll = function(thresholdNutrition, thresholdTreestats) {
+    const position = $(document).scrollTop();
+    const nutritionShownForFirstTime = checkScrollAndShowNutrition(position, thresholdNutrition);
+    if (!nutritionShownForFirstTime) {
+      checkScrollAndShowTreestats(position, thresholdTreestats);
+    }
   }
 
   /*************************/
 
-  let firstTime2 = true;
-  let firstTime3 = true;
-
   $("#tree-selection").hide();
 
-  $(window).scroll(function() {
-    let position = $(document).scrollTop();
-    if (firstTime2 && position >= $("#nutrition").offset().top - 80) {
-      firstTime2 = false;
-      updateChart(NAVEL_DATA, navelColor(0.2), navelColor(1));
+  // do scroll position check on page load to account for saved position upon page refresh
+  checkScrollAndShowOnPageLoad(document.body.clientHeight * 3 / 4, document.body.clientHeight / 2);
 
-    } else if (firstTime3 && position >= $("#treestats").offset().top - 80) {
-      firstTime3 = false;
-      $("#tree-selection").fadeIn(400);
-      $("#graph1").fadeIn(800);
-    }
+  $(window).scroll(function() {
+    checkScrollAndShowOnScroll(80, document.body.clientHeight / 3);
   });
 
   $("#landing-scroll-section .scroll-btn").click(function() {
@@ -96,8 +123,8 @@ $(document).ready(function() {
       scrollTop: $("#nutrition").offset().top,
       duration: 600
     });
-    if (firstTime2) {
-      firstTime2 = false;
+    if (firstTimeNutrition) {
+      firstTimeNutrition = false;
       setTimeout(function() {
         updateChart(NAVEL_DATA, navelColor(0.2), navelColor(1));
       }, 600)
@@ -109,8 +136,8 @@ $(document).ready(function() {
       scrollTop: $("#treestats").offset().top,
       duration: 600
     });
-    if (firstTime3) {
-      firstTime3 = false;
+    if (firstTimeTreestats) {
+      firstTimeTreestats = false;
       setTimeout(function() {
         $("#tree-selection").fadeIn(400);
         $("#graph1").fadeIn(800); // default selection
