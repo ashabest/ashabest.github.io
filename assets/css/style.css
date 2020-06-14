@@ -17,11 +17,37 @@ html, body {
 body {
     font-family: Verdana, Helvetica, sans-serif;
     font-style: italic;
+    font-size: 0.5rem;
+}
+
+@media screen and (min-width: 450px) {
+    body {
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    body {
+        font-size: 1rem;
+    }
+}
+
+.landing-content, .body-container {
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+@media screen and (min-width: 700px) {
+    .landing-content, .body-container {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
 }
 
 .body-container {
     color: #600e2a;
-    padding: 25px 100px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     width: 100%;
     height: 100%;
 }
@@ -29,7 +55,7 @@ body {
 .content-title {
     color: #ff2800;
     font-family: 'Tangerine', cursive;
-    font-size: 48pt;
+    font-size: 4em;
     font-weight: 700;
     letter-spacing: 2px;
     border-bottom: 2px solid #600e2a;
@@ -39,6 +65,12 @@ body {
 .scroll-btn {
     opacity: 0.5;
     transition: opacity 0.3s;
+}
+
+@media screen and (max-width: 450px) {
+    .scroll-btn {
+        font-size: 0.75rem;
+    }
 }
 
 .scroll-btn:hover {
@@ -69,7 +101,11 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: linear-gradient(to top right, #58031e 0%, #533025dd 60%, #cea8a8dd 100%);
+    background-image: linear-gradient(to top right,
+        rgba(88, 3, 30, 1) 0%,
+        rgba(83, 48, 37, 0.85) 60%,
+        rgba(206, 168, 168, 0.85) 100%
+    );
 }
 
 #landing {
@@ -87,15 +123,22 @@ body {
 
 nav {
     position: absolute;
-    right: 70px;
-    top: 20px;
+    right: 50px;
+    top: 40px;
+}
+
+@media screen and (max-width: 450px) {
+    nav {
+        font-size: 0.75rem;
+        right: 35px;
+    }
 }
 
 nav>a {
     color: #fff;
     margin-left: 20px;
     font-style: normal;
-    font-size: 14pt;
+    font-size: 1.2em;
     font-weight: 300;
     text-decoration: none;
     text-shadow: -1px 1px 4px #4c0015;
@@ -110,11 +153,6 @@ nav>a:hover {
     text-decoration: underline;
 }
 
-.landing-content {
-    padding-left: 100px;
-    padding-right: 100px;
-}
-
 .intro-container {
     display: inline-block;
     position: relative;
@@ -122,11 +160,11 @@ nav>a:hover {
 }
 
 .intro-container .welcome {
-    font-size: 20pt;
+    font-size: 1.7em;
 }
 
 .intro-container .main-title {
-    font-size: 70pt;
+    font-size: 5.8em;
     font-weight: 700;
     text-decoration: underline;
     animation: item-fade 2s;
@@ -134,7 +172,7 @@ nav>a:hover {
 
 .intro-container .desc {
     font-family: Helvetica;
-    font-size: 16pt;
+    font-size: 1.3em;
     font-weight: 300;
     opacity: 0;
     animation: item-fade 1.5s;
@@ -142,7 +180,7 @@ nav>a:hover {
     animation-fill-mode: forwards;
 }
 
-@media (min-width: 1074px) {
+@media (min-width: 1070px) {
 	.intro-container .desc {
 		text-align: right;
 	}
@@ -152,8 +190,6 @@ nav>a:hover {
     position: absolute;
     display: flex;
     justify-content: center;
-    font-size: 16pt;
-    font-style: normal;
     bottom: 20px;
     width: 100%;
 
@@ -164,20 +200,30 @@ nav>a:hover {
 }
 
 #landing-scroll-section .scroll-btn {
-    padding: 6px;
+    padding: 6px 10px;
     border: 1px solid white;
     border-radius: 2px;
-    font-size: 14pt;
+    font-size: 1.3em;
+    font-style: normal;
+}
+
+@media screen and (max-width: 450px) {
+    #landing-scroll-section .scroll-btn {
+        font-size: 1rem;
+    }
 }
 
 /**** NUTRITIONAL STATS ****/
+
+#nutrition {
+    position: relative;
+}
 
 .nutrition-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: calc(100% - 40px);
 }
 
 .orange-prompt {
@@ -185,7 +231,7 @@ nav>a:hover {
 }
 
 .orange-prompt > span {
-    font-size: 16pt;
+    font-size: 1.3em;
     color: #ab0840;
 }
 
@@ -196,9 +242,9 @@ nav>a:hover {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: 15px;
-    width: 36px;
-    height: 36px;
+    margin-left: 1em;
+    width: 2em;
+    height: 2em;
     border-radius: 50%;
     border: 1px solid #707070;
 }
@@ -208,10 +254,21 @@ nav>a:hover {
 }
 
 .inner {
-    width: 18px;
-    height: 18px;
+    width: 1em;
+    height: 1em;
     border-radius: 50%;
     border: 1px solid #ccc;
+}
+
+@media screen and (max-width: 400px) {
+    .radio-btn {
+        width: 3em;
+        height: 3em;
+    }
+    .inner {
+        width: 1.5em;
+        height: 1.5em;
+    }
 }
 
 #navel-btn .inner {
@@ -245,7 +302,7 @@ nav>a:hover {
 .tooltip {
     visibility: hidden;
     box-sizing: content-box;
-    width: 120px;
+    width: 7.5em;
     background-color: #333;
     color: #fff;
     text-align: center;
@@ -257,7 +314,7 @@ nav>a:hover {
     z-index: 1;
     top: 130%;
     left: 40%;
-    margin-left: -60px;
+    margin-left: -3.75em;
 }
 
 .tooltip::after {
@@ -281,19 +338,22 @@ nav>a:hover {
 
 #chart-container {
     position: relative;
-    width: 70vw;
+    width: 80vw;
+    height: 65vh;
 }
 
 #nutrition-scroll-section {
     color: #555;
-    font-size: 11pt;
-    margin-top: 15px;
+    font-size: 1em;
+    position: absolute;
+    bottom: 25px;
 }
 
 /**** TREE STATS ****/
 
 .tree-desc {
     margin-top: 7px;
+    margin-bottom: 20px;
     text-align: center;
     color: #ab0840;
 }
@@ -303,10 +363,10 @@ nav>a:hover {
 }
 
 .treestats-content {
-    margin-top: 20px;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -315,8 +375,10 @@ nav>a:hover {
 }
 
 .tree-prompt {
-    font-size: 14pt;
+    font-size: 1.3em;
     color: #6b0a2b;
+    display: block;
+    margin-bottom: 0.5em;
 }
 
 .tree-rows {
@@ -326,19 +388,16 @@ nav>a:hover {
     align-items: center;
 }
 
-.tree-row {
-    margin-top: 15px;
+@media screen and (min-width: 600px) and (max-width: 950px) {
+    .tree-rows {
+        flex-direction: row;
+    }
+}
+
+.tree-btn-row {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-}
-
-.tree-row.first {
-    width: 200px;
-}
-
-.tree-row.second {
-    width: 125px;
+    justify-content: center;
 }
 
 .tree-btn {
@@ -347,13 +406,18 @@ nav>a:hover {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    font-size: 1rem;
+    font-weight: 400;
+
     padding: 10px;
-    width: 50px;
-    height: 50px;
-    box-shadow: -1px 2px 4px #c68370;
+    margin: 0.5em 0.75em;
+    width: 3.125em;
+    height: 3.125em;
+
     border: 1px solid #600e2a;
     border-radius: 50%;
-    font-weight: 400;
+    box-shadow: -1px 2px 4px #c68370;
 }
 
 .tree-btn.selected {
@@ -369,16 +433,50 @@ nav>a:hover {
 
 #graph-img-section {
     position: relative;
-    margin-left: 80px;
     width: 500px;
     height: 500px;
 }
 
 #graph-img-section img {
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
     border-radius: 2px;
     opacity: 0.8;
     display: none; /* default */
+}
+
+@media screen and (min-width: 1024px) {
+    .treestats-content {
+        justify-content: center;
+    }
+    #graph-img-section {
+        margin-left: 80px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .treestats-content {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+    #tree-selection {
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #graph-img-section {
+        width: 70vw;
+        height: 70vw;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .tree-prompt {
+        font-size: 1rem;
+    }
+    .tree-btn {
+        font-size: 0.75rem;
+    }
 }

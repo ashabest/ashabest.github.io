@@ -25,6 +25,10 @@ $(document).ready(function() {
         return "rgba(160, 21, 70, " + alpha + ")";
     }
 
+    const fontSizeStr = window.getComputedStyle(document.body).getPropertyValue('font-size');
+    const fontSize = parseFloat(fontSizeStr);
+    Chart.defaults.global.defaultFontSize = fontSize;
+
     const chart = new Chart($("#barchart"), {
         type: "bar",
 
@@ -52,13 +56,14 @@ $(document).ready(function() {
                     scaleLabel: {
                         display: true,
                         labelString: "% Daily Value",
-                        fontSize: 14
+                        fontSize: fontSize + 2
                     }
                 }]
             },
             legend: {
-                    display: false
+                display: false
             },
+            maintainAspectRatio: false
         }
     });
 
