@@ -1,103 +1,103 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="assets/js/script.js"></script>
-    <title>Welcome to Orange Analyzer</title>
-  </head>
-  <body>
-    <!-- Landing -->
-    <section id="landing">
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-      </nav>
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+        <link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script src="assets/js/script.js"></script>
+        <title>Welcome to Orange Analyzer</title>
+    </head>
+    <body>
+        <!-- Landing -->
+        <section id="landing">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </nav>
 
-      <div class="landing-content">
-        <div class="intro-container">
-          <div class="welcome">Welcome to</div>
-          <div class="main-title">Orange Analyzer</div>
-          <div class="desc">The mini-hub for orange-related stats</div>
-        </div>
-      </div>
-
-      <div id="landing-scroll-section">
-        <div class="scroll-btn">
-          <span>&darr;</span>
-          <span>Start here</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Nutrition stuff -->
-    <section id="nutrition" class="body-container">
-      <div class="content-title">Nutritional Stats</div>
-      <div class="nutrition-content">
-        <div class="orange-prompt">
-          <span>Choose your orange:</span>
-          <div class="radio-btn selected" id="navel-btn">
-            <div class="inner"></div>
-            <div class="overlay"></div>
-            <span class="tooltip">Navel Orange</span>
-          </div>
-          <div class="radio-btn" id="cara-cara-btn">
-            <div class="inner"></div>
-            <div class="overlay"></div>
-            <span class="tooltip">Cara Cara</span>
-          </div>
-          <div class="radio-btn" id="blood-orange-btn">
-            <div class="inner"></div>
-            <div class="overlay"></div>
-            <span class="tooltip">Blood Orange</span>
-          </div>
-        </div>
-        <div id="chart-container">
-            <canvas id="barchart"></canvas>
-        </div>
-
-        <div id="nutrition-scroll-section">
-          <div class="scroll-btn">
-            <span>&darr;</span>
-            <span>See more</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- Orange trees -->
-    <section id="treestats" class="body-container">
-      <div class="content-title">Orange Tree Stats</div>
-      <div class="tree-desc">straight from R’s <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Orange.html">built-in data table</a></div>
-      <div class="treestats-content">
-        <div id="tree-selection">
-          <span class="tree-prompt">Select tree:</span>
-          <div class="tree-rows">
-            <div class="tree-row first">
-              <div id="tb1" class="tree-btn selected">1</div>
-              <div id="tb2" class="tree-btn">2</div>
-              <div id="tb3" class="tree-btn">3</div>
+            <div class="landing-content">
+                <div class="intro-container">
+                    <div class="welcome">Welcome to</div>
+                    <div class="main-title">Orange Analyzer</div>
+                    <div class="desc">The mini-hub for orange-related stats</div>
+                </div>
             </div>
-            <div class="tree-row second">
-              <div id="tb4" class="tree-btn">4</div>
-              <div id="tb5" class="tree-btn">5</div>
+
+            <div id="landing-scroll-section">
+                <div class="scroll-btn">
+                    <span>&darr;</span>
+                    <span>Start here</span>
+                </div>
             </div>
-          </div>
-        </div>
-        <div id="graph-img-section">
-          <img id="graph1" src="assets/img/tree1.png" alt="age versus circumference for tree 1">
-          <img id="graph2" src="assets/img/tree2.png" alt="age versus circumference for tree 2">
-          <img id="graph3" src="assets/img/tree3.png" alt="age versus circumference for tree 3">
-          <img id="graph4" src="assets/img/tree4.png" alt="age versus circumference for tree 4">
-          <img id="graph5" src="assets/img/tree5.png" alt="age versus circumference for tree 5">
-        </div>
-      </div>
-    </section>
-  </body>
+        </section>
+
+        <!-- Nutrition stuff -->
+        <section id="nutrition" class="body-container">
+            <div class="content-title">Nutritional Stats</div>
+            <div class="nutrition-content">
+                <div class="orange-prompt">
+                    <span>Choose your orange:</span>
+                    <div class="radio-btn selected" id="navel-btn">
+                        <div class="inner"></div>
+                        <div class="overlay"></div>
+                        <span class="tooltip">Navel Orange</span>
+                    </div>
+                    <div class="radio-btn" id="cara-cara-btn">
+                        <div class="inner"></div>
+                        <div class="overlay"></div>
+                        <span class="tooltip">Cara Cara</span>
+                    </div>
+                    <div class="radio-btn" id="blood-orange-btn">
+                        <div class="inner"></div>
+                        <div class="overlay"></div>
+                        <span class="tooltip">Blood Orange</span>
+                    </div>
+                </div>
+                <div id="chart-container">
+                        <canvas id="barchart"></canvas>
+                </div>
+
+                <div id="nutrition-scroll-section">
+                    <div class="scroll-btn">
+                        <span>&darr;</span>
+                        <span>See more</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Orange trees -->
+        <section id="treestats" class="body-container">
+            <div class="content-title">Orange Tree Stats</div>
+            <div class="tree-desc">straight from R’s <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Orange.html">built-in data table</a></div>
+            <div class="treestats-content">
+                <div id="tree-selection">
+                    <span class="tree-prompt">Select tree:</span>
+                    <div class="tree-rows">
+                        <div class="tree-row first">
+                            <div id="tb1" class="tree-btn selected">1</div>
+                            <div id="tb2" class="tree-btn">2</div>
+                            <div id="tb3" class="tree-btn">3</div>
+                        </div>
+                        <div class="tree-row second">
+                            <div id="tb4" class="tree-btn">4</div>
+                            <div id="tb5" class="tree-btn">5</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="graph-img-section">
+                    <img id="graph1" src="assets/img/tree1.png" alt="age versus circumference for tree 1">
+                    <img id="graph2" src="assets/img/tree2.png" alt="age versus circumference for tree 2">
+                    <img id="graph3" src="assets/img/tree3.png" alt="age versus circumference for tree 3">
+                    <img id="graph4" src="assets/img/tree4.png" alt="age versus circumference for tree 4">
+                    <img id="graph5" src="assets/img/tree5.png" alt="age versus circumference for tree 5">
+                </div>
+            </div>
+        </section>
+    </body>
 </html>
