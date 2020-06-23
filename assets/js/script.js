@@ -10,31 +10,31 @@ $(document).ready(function() {
     const BLOOD_ORANGE_DATA = [110, 8, 4, 11, 5];
 
     const navelColor = function(alpha) {
-        return "rgba(230, 114, 43, " + alpha + ")";
+        return 'rgba(230, 114, 43, ' + alpha + ')';
     }
 
     const caraCaraColor = function(alpha) {
-        return "rgba(240, 72, 60, " + alpha + ")";
+        return 'rgba(240, 72, 60, ' + alpha + ')';
     }
 
     const bloodOrangeColorInner = function(alpha) {
-        return "rgba(180, 21, 70, " + alpha + ")";
+        return 'rgba(180, 21, 70, ' + alpha + ')';
     }
 
     const bloodOrangeColorOuter = function(alpha) {
-        return "rgba(160, 21, 70, " + alpha + ")";
+        return 'rgba(160, 21, 70, ' + alpha + ')';
     }
 
     const fontSizeStr = window.getComputedStyle(document.body).getPropertyValue('font-size');
     const fontSize = parseFloat(fontSizeStr);
     Chart.defaults.global.defaultFontSize = fontSize;
 
-    const chart = new Chart($("#barchart"), {
-        type: "bar",
+    const chart = new Chart($('#barchart'), {
+        type: 'bar',
 
         // start up
         data: {
-            labels: ["Vitamin C", "Vitamin A", "Calcium", "Dietary Fiber", "Carbohydrates"],
+            labels: ['Vitamin C', 'Vitamin A', 'Calcium', 'Dietary Fiber', 'Carbohydrates'],
             datasets: [{
                 label: null,
                 data: [0,0,0,0,0],
@@ -55,7 +55,7 @@ $(document).ready(function() {
                     },
                     scaleLabel: {
                         display: true,
-                        labelString: "% Daily Value",
+                        labelString: '% Daily Value',
                         fontSize: fontSize + 2
                     }
                 }]
@@ -77,12 +77,12 @@ $(document).ready(function() {
     }
 
     const updateSelected = function(btnsAll, btn) {
-        btnsAll.removeClass("selected");
-        btn.addClass("selected");
+        btnsAll.removeClass('selected');
+        btn.addClass('selected');
     }
 
     const checkScrollAndShowNutrition = function(position, threshold) {
-        const initializeFirstTime = firstTimeNutrition && position >= $("#nutrition").offset().top - threshold;
+        const initializeFirstTime = firstTimeNutrition && position >= $('#nutrition').offset().top - threshold;
         if (initializeFirstTime) {
             firstTimeNutrition = false;
             updateChart(NAVEL_DATA, navelColor(0.2), navelColor(1)); // default to navel the first time
@@ -91,11 +91,11 @@ $(document).ready(function() {
     }
 
     const checkScrollAndShowTreestats = function(position, threshold) {
-        const initializeFirstTime = firstTimeTreestats && position >= $("#treestats").offset().top - threshold;
+        const initializeFirstTime = firstTimeTreestats && position >= $('#treestats').offset().top - threshold;
         if (initializeFirstTime) {
             firstTimeTreestats = false;
-            $("#graph1").fadeIn(800);
-            $("#tree-selection").fadeIn(400);
+            $('#graph1').fadeIn(800);
+            $('#tree-selection').fadeIn(400);
         }
         return initializeFirstTime;
     }
@@ -116,7 +116,7 @@ $(document).ready(function() {
 
     /***** Hide/show elements on page load *****/
 
-    $("#tree-selection").hide();
+    $('#tree-selection').hide();
 
     // do scroll position check on page load to account for saved position upon page refresh
     checkScrollAndShowOnPageLoad(document.body.clientHeight * 3 / 4, document.body.clientHeight / 2);
@@ -127,9 +127,9 @@ $(document).ready(function() {
 
     /***** Event handlers *****/
 
-    $("#landing-scroll-section .scroll-btn").click(function() {
-        $("body, html").animate({
-            scrollTop: $("#nutrition").offset().top,
+    $('#landing-scroll-section .scroll-btn').click(function() {
+        $('body, html').animate({
+            scrollTop: $('#nutrition').offset().top,
             duration: 600
         });
         if (firstTimeNutrition) {
@@ -140,39 +140,39 @@ $(document).ready(function() {
         }
     });
 
-    $("#nutrition-scroll-section .scroll-btn").click(function() {
-        $("body, html").animate({
-            scrollTop: $("#treestats").offset().top,
+    $('#nutrition-scroll-section .scroll-btn').click(function() {
+        $('body, html').animate({
+            scrollTop: $('#treestats').offset().top,
             duration: 600
         });
         if (firstTimeTreestats) {
             firstTimeTreestats = false;
             setTimeout(function() {
-                $("#tree-selection").fadeIn(400);
-                $("#graph1").fadeIn(800); // default selection
+                $('#tree-selection').fadeIn(400);
+                $('#graph1').fadeIn(800); // default selection
             }, 600)
         }
     });
 
-    $("#navel-btn").click(function() {
-        updateSelected($(".radio-btn"), $(this));
+    $('#navel-btn').click(function() {
+        updateSelected($('.radio-btn'), $(this));
         updateChart(NAVEL_DATA, navelColor(0.2), navelColor(1));
     });
 
-    $("#cara-cara-btn").click(function() {
-        updateSelected($(".radio-btn"), $(this));
+    $('#cara-cara-btn').click(function() {
+        updateSelected($('.radio-btn'), $(this));
         updateChart(CARA_CARA_DATA, caraCaraColor(0.2), caraCaraColor(1));
     });
 
-    $("#blood-orange-btn").click(function() {
-        updateSelected($(".radio-btn"), $(this));
+    $('#blood-orange-btn').click(function() {
+        updateSelected($('.radio-btn'), $(this));
         updateChart(BLOOD_ORANGE_DATA, bloodOrangeColorInner(0.2), bloodOrangeColorOuter(1));
     });
 
-    $(".tree-btn").click(function() {
-        updateSelected($(".tree-btn"), $(this))
-        const toShowID = "#graph" + $(this).attr("id").slice(-1);
-        $("#graph-img-section img").fadeOut();
+    $('.tree-btn').click(function() {
+        updateSelected($('.tree-btn'), $(this))
+        const toShowID = '#graph' + $(this).attr('id').slice(-1);
+        $('#graph-img-section img').fadeOut();
         $(toShowID).fadeIn();
     });
 })
