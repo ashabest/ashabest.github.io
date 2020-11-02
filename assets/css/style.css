@@ -62,6 +62,22 @@ body {
     text-align: center;
 }
 
+/* default button overrides */
+button {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    color: inherit;
+    background-color: inherit;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+}
+
+button:focus, button:active {
+    outline: none;
+}
+
 .scroll-btn {
     opacity: 0.5;
     transition: opacity 0.3s;
@@ -75,7 +91,6 @@ body {
 
 .scroll-btn:hover {
     opacity: 1;
-    cursor: pointer;
 }
 
 .divider {
@@ -248,6 +263,7 @@ nav>a:hover {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    font-size: 1em;
     margin-left: 1em;
     width: 2em;
     height: 2em;
@@ -306,7 +322,7 @@ nav>a:hover {
 
 /* Tooltip styling from https://www.w3schools.com/css/css_tooltip.asp */
 .tooltip {
-    visibility: hidden;
+    display: none;
     box-sizing: content-box;
     width: 7.5em;
     background-color: #333;
@@ -334,12 +350,8 @@ nav>a:hover {
     border-color: transparent transparent #333 transparent;
 }
 
-.radio-btn:hover {
-    cursor: pointer;
-}
-
 .radio-btn:hover .tooltip {
-    visibility: visible;
+    display: block;
 }
 
 #chart-container {
@@ -435,7 +447,6 @@ nav>a:hover {
 
 .tree-btn:hover {
     background: #bf7864;
-    cursor: pointer;
 }
 
 #graph-img-section {
