@@ -124,7 +124,7 @@ button:focus, button:active {
 }
 
 #landing {
-    background: url("../img/orange-slices.jpeg");
+    background: url('../img/orange-slices.jpeg');
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -201,7 +201,7 @@ nav>a:hover {
     animation-fill-mode: forwards;
 }
 
-@media (min-width: 1070px) {
+@media screen and (min-width: 1070px) {
 	.intro-container .desc {
 		text-align: right;
 	}
@@ -340,7 +340,7 @@ nav>a:hover {
 }
 
 .tooltip::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 100%;
     left: 50%;
