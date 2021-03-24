@@ -74,6 +74,8 @@ button {
     padding: 0;
 }
 
+/* styling to indicate focus/active when using keyboard is done on an individual basis
+ * with the .using-keyboard class, most of the time along with the hover styles */
 button:focus, button:active {
     outline: none;
 }
@@ -89,7 +91,9 @@ button:focus, button:active {
     }
 }
 
-.scroll-btn:hover {
+.scroll-btn:hover,
+.using-keyboard .scroll-btn:focus,
+.using-keyboard .scroll-btn:active {
     opacity: 1;
 }
 
@@ -316,7 +320,9 @@ nav>a:hover {
     opacity: 0.2;
 }
 
-.radio-btn:hover .overlay {
+.radio-btn:hover .overlay,
+.using-keyboard .radio-btn:focus .overlay,
+.using-keyboard .radio-btn:active .overlay {
     visibility: visible;
 }
 
@@ -350,7 +356,9 @@ nav>a:hover {
     border-color: transparent transparent #333 transparent;
 }
 
-.radio-btn:hover .tooltip {
+.radio-btn:hover .tooltip,
+.using-keyboard .radio-btn:focus .tooltip,
+.using-keyboard .radio-btn:active .tooltip {
     display: block;
 }
 
@@ -366,6 +374,16 @@ nav>a:hover {
     font-size: 1em;
     position: absolute;
     bottom: 25px;
+}
+
+#nutrition-scroll-section .scroll-btn {
+    padding: 2px 8px;
+}
+
+.using-keyboard #nutrition-scroll-section .scroll-btn:focus,
+.using-keyboard #nutrition-scroll-section .scroll-btn:active {
+    outline-style: dotted;
+    outline-width: 2px;
 }
 
 /**** TREE STATS ****/
@@ -445,7 +463,9 @@ nav>a:hover {
     font-weight: 700;
 }
 
-.tree-btn:hover {
+.tree-btn:hover,
+.using-keyboard .tree-btn:focus,
+.using-keyboard .tree-btn:active {
     background: #bf7864;
 }
 

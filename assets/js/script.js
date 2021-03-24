@@ -175,4 +175,36 @@ $(document).ready(function() {
         $('#graph-img-section img').fadeOut();
         $(toShowID).fadeIn();
     });
+
+    /***** Event listeners to detect when using mouse/keyboard, used for button styling on focus *****/
+
+    // keep track of whether shift or tab keys are currently pressed down
+    const keysdown = { 'Shift': false, 'Tab': false }
+
+    $('body').keydown(function(evt) {
+        // add class using-keyboard
+        $('body').addClass('using-keyboard');
+
+        // record pressed key if shift or tab
+        if (evt.key in keysdown) {
+            keysdown[evt.key] = true;
+        }
+        // if using tab and reached nutrition section scroll button, simulate scroll button click to reveal
+        // elements in treestats section and thus enable focus on tree selection buttons
+        // allows users to reach all buttons just with tab
+        // however, do not simulate the scroll down behavior if doing shift+tab, which is used to 
+        // traverse up the document to focus on previous buttons
+        if (keysdown['Tab'] && !keysdown['Shift'] && $(':focus')[0] === $('#nutrition-scroll-section .scroll-btn')[0]) {
+            $('#nutrition-scroll-section .scroll-btn').click();
+        }
+    }).keyup(function(evt) {
+        // reset pressed key record on keyup
+        if (evt.key in keysdown) {
+            keysdown[evt.key] = false;
+        }
+    });
+
+    $('body').mousedown(function() {
+        $('body').removeClass('using-keyboard');
+    });
 })
